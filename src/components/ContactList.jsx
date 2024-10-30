@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ContactRow from "./ContactRow";
 
 
-export default function ContactList() { 
+export default function ContactList({ setSelectedContactID }) { 
   const [contacts, setContacts] = useState([]);
   
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function ContactList() {
             {
                // Map over data here
                contacts.map((contact) => {
-                return <ContactRow key={contact.id} contact={contact} />
+                return <ContactRow key={contact.id} contact={contact} setSelectedContactID={setSelectedContactID}/>
                })
              }
           </tbody>
